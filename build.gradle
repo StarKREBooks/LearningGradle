@@ -1,5 +1,5 @@
 apply plugin: 'java'
-apply plugin: GreetingPlugin
+apply from: 'gradlePlugins\\greetingPlugin.gradle'
 
 repositories {
     mavenCentral()
@@ -10,26 +10,3 @@ dependencies {
     testImplementation group: 'junit', name: 'junit', version: '4.+'
 }
 
-class GreetingPluginExtension {
-    String message
-    String greeter
-}
-
-greeting {
-    message = 'Hi'
-    greeter = 'Gradle'
-}
-
-final class GreetingPlugin implements Plugin<Project> {
-
-    @Override
-    final void apply(final Project project) {
-        project.extensions.create("greeting", GreetingPluginExtension)
-
-        project.task('hello') << {
-            final String message = project.greeting.message
-            final String greeter = project.greeting.greeter
-            println(message + " from " + greeter)
-        }
-    }
-}

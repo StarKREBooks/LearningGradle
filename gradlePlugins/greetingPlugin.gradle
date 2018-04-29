@@ -1,0 +1,25 @@
+apply plugin: 'java'
+
+apply plugin: GreetingPlugin
+
+class GreetingPluginExtension {
+    String message
+    String greeter
+}
+
+final class GreetingPlugin implements Plugin<Project> {
+
+    @Override
+    final void apply(final Project project) {
+        project.extensions.create("greeting", GreetingPluginExtension)
+
+        project.task('hello'){
+            project.hello.description = $/Greetings!/$
+            project.greeting.message = 'Hi'
+            project.greeting.greeter = 'Gradle'
+            final String message = project.greeting.message
+            final String greeter = project.greeting.greeter
+            println(message + " from " + greeter)
+        }
+    }
+}
