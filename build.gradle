@@ -6,16 +6,30 @@ repositories {
     jcenter()
 }
 
-dependencies{
+dependencies {
     testImplementation group: 'junit', name: 'junit', version: '4.+'
 }
 
-final class GreetingPlugin implements Plugin<Project>{
+class GreetingPluginExtension {
+    String message
+    String greeter
+}
+
+greeting {
+    message = 'Hi'
+    greeter = 'Gradle'
+}
+
+final class GreetingPlugin implements Plugin<Project> {
 
     @Override
     final void apply(final Project project) {
-        project.task('hello'){
-            println("Hello World from GreetingPlugin")
+        project.extensions.create("greeting", GreetingPluginExtension)
+
+        project.task('hello') << {
+            final String message = project.greeting.message
+            final String greeter = project.greeting.greeter
+            println(message + " from " + greeter)
         }
     }
 }
