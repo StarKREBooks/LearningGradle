@@ -1,0 +1,33 @@
+task ourTeam << {
+    println("THIS IS OUR TEAM!")
+}
+
+ourTeam.dependsOn{
+    tasks.findAll{
+        task -> task.name.endsWith("KRE")
+    }
+}
+
+task StarKRE << {
+    println "Name: StarKRE"
+}
+
+task RossKRE << {
+    println "Name: RossKRE"
+}
+
+task DolKRE << {
+    println "Name: DolKRE"
+}
+
+task KazKRE << {
+    println "Name: KazKRE"
+}
+
+task PetKRE << {
+    println("Name: PetKRE")
+}
+
+task hello << {
+    println("HELLO WORLD")
+}
