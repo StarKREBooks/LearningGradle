@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/gradleProject.iml" filepath="$PROJECT_DIR$/gradleProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gradleProject_main.iml" filepath="$PROJECT_DIR$/.idea/modules/gradleProject_main.iml" group="gradleProject" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gradleProject_test.iml" filepath="$PROJECT_DIR$/.idea/modules/gradleProject_test.iml" group="gradleProject" />
     </modules>
   </component>
 </project>
